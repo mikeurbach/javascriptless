@@ -1,0 +1,33 @@
+// Parent class for all animations. Must supply animation name and duration;
+// standard defaults are used for every other field.
+.animation (@name, @duration, @timing : ease, @delay : 0, @iter : 1,
+              @direction : normal, @state : running) {
+
+  // Standard
+  animation-name: @name;
+  animation-duration: @duration;
+  animation-timing-function: @timing;
+  animation-delay: @delay;
+  animation-iteration-count: @iter;
+  animation-direction: @direction;
+  animation-play-state: @state;
+
+  // Mozilla
+  -moz-animation-name: @name;
+  -moz-animation-duration: @duration;
+  -moz-animation-timing-function: @timing;
+  -moz-animation-delay: @delay;
+  -moz-animation-iteration-count: @iter;
+  -moz-animation-direction: @direction;
+  -moz-animation-play-state: @state;
+
+  // Webkit
+  -webkit-animation-name: @name;
+  -webkit-animation-duration: @duration;
+  -webkit-animation-timing-function: @timing;
+  -webkit-animation-delay: @delay;
+  -webkit-animation-iteration-count: @iter;
+  -webkit-animation-direction: @direction;
+  -webkit-animation-play-state: @state;  
+
+}
