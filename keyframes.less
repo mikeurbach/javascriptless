@@ -1,0 +1,42 @@
+// Keyframes for moving an element. Must supply initial x,y and final x,y.
+// Also, the position type cannot be defined within the keyframes, so 
+// be sure to define it for the element in question in your less file.
+// 
+// Uses standard coordinates from Java etc.:
+//           (0,0) x---->
+//             y
+//             |
+//             |
+//             \/
+
+.move (@x0, @y0, @x1, @y1) {
+  
+  0% {
+    left: @x0;
+    top: @y0;
+  }
+
+  100% {
+    left: @x1;
+    top: @y1;
+  }
+
+}
+
+// Keyframes for rotating an element. Must supply rotation amount.
+
+.rotate (@deg) {
+  
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(@deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(@deg);
+  }
+
+}
