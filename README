@@ -1,0 +1,3 @@
+javascript.less is a less css library to abstract away
+much of the work traditional done by javascript libraries
+into css3 (with the help of less.js by [cloudhead](http://cloudhead.io/).)
