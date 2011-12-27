@@ -1,36 +1,338 @@
-// Import our library of @keyframe definitions
-@import 'keyframes';
+@import 'animation';
 
-// Parent class for all animations. Must supply animation name and duration;
-// standard defaults are used for every other field.
-.animation (@name, @duration, @timing : ease, @delay : 0, @iter : 1,
-              @direction : normal, @state : running) {
+/********************************
+*****  Transform keyframes ******
+********************************/
 
-  // Standard
-  animation-name: @name;
-  animation-duration: @duration;
-  animation-timing-function: @timing;
-  animation-delay: @delay;
-  animation-iteration-count: @iter;
-  animation-direction: @direction;
-  animation-play-state: @state;
+// Keyframes for translating an element.
+.translate (@dX, @dY, @duration: 3s, @timing : ease, @delay : 0, @iter : 1,
+           @direction : normal, @state : running) {
+  
+  .animation(animation, @duration, @timing, @delay, @iter,
+               @direction, @state);
 
-  // Mozilla
-  -moz-animation-name: @name;
-  -moz-animation-duration: @duration;
-  -moz-animation-timing-function: @timing;
-  -moz-animation-delay: @delay;
-  -moz-animation-iteration-count: @iter;
-  -moz-animation-direction: @direction;
-  -moz-animation-play-state: @state;
+  @keyframes animation {  
+    from {
+      transform: translate(0,0);
+    }
 
-  // Webkit
-  -webkit-animation-name: @name;
-  -webkit-animation-duration: @duration;
-  -webkit-animation-timing-function: @timing;
-  -webkit-animation-delay: @delay;
-  -webkit-animation-iteration-count: @iter;
-  -webkit-animation-direction: @direction;
-  -webkit-animation-play-state: @state;  
+    to {
+      transform: translate(@dX, @dY);
+    }
+  }
 
+  @-moz-keyframes animation {  
+    from {
+      -moz-transform: translate(0,0);
+    }
+
+    to {
+      -moz-transform: translate(@dX, @dY);
+    }
+  }
+
+  @-webkit-keyframes animation {  
+    from {
+      -webkit-transform: translate(0,0);
+    }
+
+    to {
+      -webkit-transform: translate(@dX, @dY);
+    }
+  }
 }
+
+// Keyframes for rotating an element.
+.rotate (@deg, @duration: 3s, @timing : ease, @delay : 0, @iter : 1,
+           @direction : normal, @state : running) {
+  
+  .animation(animation, @duration, @timing, @delay, @iter,
+               @direction, @state);
+
+  @keyframes animation {  
+    from {
+      transform: rotate(0);
+    }
+
+    to {
+      transform: roate(@deg);
+    }
+  }
+
+  @-moz-keyframes animation {  
+    from {
+      -moz-transform: rotate(0);
+    }
+
+    to {
+      -moz-transform: rotate(@deg);
+    }
+  }
+
+  @-webkit-keyframes animation {  
+    from {
+      -webkit-transform: rotate(0);
+    }
+
+    to {
+      -webkit-transform: rotate(@deg);
+    }
+  }
+}
+
+// Keyframes for scaling an element.
+.scale (@scale, @duration: 3s, @timing : ease, @delay : 0, @iter : 1,
+           @direction : normal, @state : running) {
+  
+  .animation(animation, @duration, @timing, @delay, @iter,
+               @direction, @state);
+
+  @keyframes animation {  
+    from {
+      transform: scale(0);
+    }
+
+    to {
+      transform: scale(@scale);
+    }
+  }
+
+  @-moz-keyframes animation {  
+    from {
+      -moz-transform: scale(0);
+    }
+
+    to {
+      -moz-transform: scale(@scale);
+    }
+  }
+
+  @-webkit-keyframes animation {  
+    from {
+      -webkit-transform: scale(0);
+    }
+
+    to {
+      -webkit-transform: scale(@scale);
+    }
+  }
+}
+
+// Keyframes for skewing an element.
+.skew(@deg, @duration: 3s, @timing : ease, @delay : 0, @iter : 1,
+           @direction : normal, @state : running) {
+  
+  .animation(animation, @duration, @timing, @delay, @iter,
+               @direction, @state);
+
+  @keyframes animation {  
+    from {
+      transform: skew(0);
+    }
+
+    to {
+      transform: skew(@deg);
+    }
+  }
+
+  @-moz-keyframes animation {  
+    from {
+      -moz-transform: skew(0);
+    }
+
+    to {
+      -moz-transform: skew(@deg);
+    }
+  }
+
+  @-webkit-keyframes animation {  
+    from {
+      -webkit-transform: skew(0);
+    }
+
+    to {
+      -webkit-transform: skew(@deg);
+    }
+  }
+}
+
+/*******************************
+***** Visibility Keyframes *****
+*******************************/
+
+// Keyframe for showing (can't animate)
+.show {
+  display: block;
+}
+
+// Keyframe for hiding (can't animate)
+.hide {
+  display: none;
+}
+
+// Keyframes for fading in
+.fadeIn (@duration: 3s, @timing : ease, @delay : 0, @iter : 1,
+           @direction : normal, @state : running) {
+  
+  .animation(animation, @duration, @timing, @delay, @iter,
+               @direction, @state);
+
+
+  @keyframes animation {  
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @-moz-keyframes animation {  
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes animation { 
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }  
+  }  
+}
+
+// Keyframes for fading out
+.fadeOut (@duration: 3s, @timing : ease, @delay : 0, @iter : 1,
+           @direction : normal, @state : running) {
+  
+  .animation(animation, @duration, @timing, @delay, @iter,
+               @direction, @state);
+
+
+  @keyframes animation {  
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  @-moz-keyframes animation {  
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  @-webkit-keyframes animation {  
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }  
+  }  
+}
+
+/*****************************************
+***** Keyframes for sliding elements *****
+*****************************************/
+
+// Keyframes for sliding down an element.
+// @height required, @duration optional (defaults to 3s)
+.slideDown(@height, @duration: 3s, @timing : ease, @delay : 0, @iter : 1,
+           @direction : normal, @state : running) {
+  
+  .animation(animation, @duration, @timing, @delay, @iter,
+               @direction, @state);
+
+  @keyframes animation {
+    from {
+      height: 0px;
+      opacity: 0;
+    }
+    to {
+      height: @height;
+      opacity: 1;
+    }
+  }
+
+  @-moz-keyframes animation {
+    from {
+      height: 0px;
+      opacity: 0;
+    }
+    to {
+      height: @height;
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes animation {
+    from {
+      height: 0px;
+      opacity: 0;
+    }
+    to {
+      height: @height;
+      opacity: 1;
+    }
+  }
+}
+
+// Keyframes for sliding up an element.
+// @height required, @duration optional (defaults to 3s)
+.slideUp(@height, @duration: 3s, @timing : ease, @delay : 0, @iter : 1,
+           @direction : normal, @state : running) {
+  
+  .animation(animation, @duration, @timing, @delay, @iter,
+               @direction, @state);
+
+  @keyframes animation {
+    from {
+      height: @height;
+      opacity: 1;
+    }
+    to {
+      height: 0px;
+      opacity: 0;
+    }
+  }
+
+  @-moz-keyframes animation {
+    from {
+      height: @height;
+      opacity: 1;
+    }
+    to {
+      height: 0px;
+      opacity: 0;
+    }
+  }
+
+  @-webkit-keyframes animation {
+    from {
+      height: @height;
+      opacity: 1;
+    }
+    to {
+      height: 0px;
+      opacity: 0;
+    }
+  }
+}
+
