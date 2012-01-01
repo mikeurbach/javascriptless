@@ -76,6 +76,56 @@
   }
 }
 
+// Keyframes for translating an element with a bounce.
+.translateBounce (@dX, @dY, @duration: 3s, @timing : ease, @delay : 0, @iter : 1,
+           @direction : normal, @state : running) {
+  
+  .animation(animation, @duration, @timing, @delay, @iter,
+               @direction, @state);
+
+  @keyframes animation {  
+    0% {
+      transform: translate(0,0);
+    }
+
+    90% {
+      transform: translate(@dX * 1.1, @dY * 1.1);
+    }
+    
+    100% {
+      transform: translate(@dX, @dY);
+    }
+  }
+
+  @-moz-keyframes animation {  
+    0% {
+      -moz-transform: translate(0,0);
+    }
+
+    90% {
+      -moz-transform: translate(@dX * 1.1, @dY * 1.1);
+    }
+    
+    100% {
+      -moz-transform: translate(@dX, @dY);
+    }
+  }
+
+  @-webkit-keyframes animation {  
+    0% {
+      -webkit-transform: translate(0,0);
+    }
+
+    90% {
+      -webkit-transform: translate(@dX * 1.1, @dY * 1.1);
+    }
+    
+    100% {
+      -webkit-transform: translate(@dX, @dY);
+    }
+  }
+}
+
 // Keyframes for rotating an element.
 .rotate (@deg, @duration: 3s, @timing : ease, @delay : 0, @iter : 1,
            @direction : normal, @state : running) {
@@ -308,11 +358,11 @@
   @-moz-keyframes animation {
     from {
       height: 0px;
-      opacity: 0;
+      //opacity: 0;
     }
     to {
       height: @height;
-      opacity: 1;
+      //opacity: 1;
     }
   }
 

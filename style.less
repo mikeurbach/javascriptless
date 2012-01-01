@@ -1,7 +1,26 @@
 @import 'javascript.less';
+@import 'grid.less';
 
-#header {
-	.slideDown(350px);
-	width: 500px;
-	background-color: #33FFFF;
+@columns: 12;
+@column-width: 60;
+@gutter-width: 20;
+@total-width: 100%;
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+header {
+	.column(6);
+	.offset(.3);
+	.fadeIn;
+	text-align: center;
+	font: 25px #333 serif;
+	margin-top: 25px;
+	padding: 15px;
+	-moz-border-radius: 15px;
+	border: 2px dashed #CCC;
+	background-color: #CCEEFF;
 }
